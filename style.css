@@ -1,0 +1,871 @@
+/* ==========================================================
+   RESET & VARIABLES GLOBALES
+   ========================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #00897b;         /* Turquesa Clínico Elegante */
+    --primary-dark: #00695c;    /* Turquesa Profundo */
+    --accent: #0f172a;          /* Azul Marino Profesional */
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --whatsapp: #25d366;
+    --insta-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    --shadow-card: 0 10px 25px rgba(15, 23, 42, 0.05);
+    --shadow-hover: 0 18px 35px rgba(0, 137, 123, 0.18);
+    --transition: all 0.3s ease-in-out;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.text-center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.w-100 { width: 100%; }
+
+/* ==========================================================
+   TOP BAR
+   ========================================================== */
+.top-bar {
+    background-color: var(--accent);
+    color: var(--white);
+    font-size: 0.82rem;
+    padding: 8px 0;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-info span {
+    margin-right: 20px;
+}
+
+.top-info i {
+    color: var(--primary);
+    margin-right: 6px;
+}
+
+.top-social a {
+    color: var(--white);
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.top-social a:hover {
+    color: var(--primary);
+}
+
+/* ==========================================================
+   NAVBAR & LOGO ORIGINAL
+   ========================================================== */
+.navbar {
+    background-color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* MARCO DEL LOGO ORIGINAL */
+.logo-img-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 10px rgba(0, 137, 123, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.logo-text span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.nav-links a:not(.btn-primary-nav):hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.btn-primary-nav {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 137, 123, 0.25);
+}
+
+.btn-primary-nav:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.menu-checkbox, .menu-btn {
+    display: none;
+}
+
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #e0f2f1 0%, #f8fafc 100%);
+    padding: 60px 0 70px 0;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.badge-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 137, 123, 0.12);
+    color: var(--primary-dark);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 18px;
+}
+
+.badge-hero i {
+    color: #f59e0b;
+}
+
+.hero-text h1 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    line-height: 1.2;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 800;
+}
+
+.hero-text h1 span {
+    color: var(--primary);
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp);
+    color: var(--white);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1eb853;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid #cbd5e1;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.hero-visual {
+    position: relative;
+}
+
+.hero-image-card {
+    background: var(--white);
+    padding: 12px;
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+}
+
+.hero-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.hero-float-badge {
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 12px 18px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.hero-float-badge i {
+    font-size: 1.6rem;
+    color: var(--primary);
+}
+
+.hero-float-badge span {
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    font-size: 0.88rem;
+}
+
+.hero-float-badge small {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+/* ==========================================================
+   STATS BAR / ANIMATED METRICS
+   ========================================================== */
+.stats-bar {
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 35px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-card {
+    padding: 10px;
+}
+
+.stat-icon {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    animation: numberGlow 3s ease-in-out infinite alternate;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* ==========================================================
+   SECCIONES COMPACTAS
+   ========================================================== */
+.about, .services, .patients-gallery, .testimonials, .location-section {
+    padding: 65px 0;
+}
+
+.about { background-color: var(--white); }
+.services { background-color: var(--bg-light); }
+.patients-gallery { background-color: var(--white); }
+.testimonials { background-color: var(--bg-light); }
+.location-section { background-color: var(--white); }
+
+.section-header {
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+}
+
+.section-tag {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 1.2px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-img-box {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.about-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+
+.about-card-badge-ig {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--insta-grad);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3);
+}
+
+.about-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.af-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+.af-item i {
+    color: var(--primary);
+}
+
+.btn-ig-outline {
+    border: 2px solid #dc2743;
+    color: #dc2743;
+    background: transparent;
+}
+
+.btn-ig-outline:hover {
+    background: #dc2743;
+    color: var(--white);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.s-icon {
+    background: rgba(0, 137, 123, 0.1);
+    color: var(--primary);
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.s-link {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-featured {
+    background: linear-gradient(135deg, var(--accent) 0%, #1e293b 100%);
+    color: var(--white);
+}
+
+.card-featured h3, .card-featured p { color: var(--white); }
+.card-featured .s-icon { background: rgba(255, 255, 255, 0.15); color: var(--white); }
+
+/* Galería Pacientes IG */
+.ig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.ig-card {
+    height: 250px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.ig-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.ig-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    gap: 8px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.ig-overlay i { font-size: 2rem; color: #dc2743; }
+.ig-overlay span { font-size: 0.9rem; font-weight: 600; }
+
+.ig-card:hover .ig-overlay { opacity: 1; }
+.ig-card:hover .ig-img { transform: scale(1.06); }
+
+/* Testimonios Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.t-card {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+}
+
+.t-stars { color: #f59e0b; margin-bottom: 12px; font-size: 0.9rem; }
+.t-card p { color: var(--text-main); font-style: italic; font-size: 0.92rem; margin-bottom: 20px; }
+.t-author { display: flex; align-items: center; gap: 12px; }
+
+.t-avatar {
+    width: 42px;
+    height: 42px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t-author h4 { font-family: var(--font-heading); color: var(--accent); font-size: 0.95rem; }
+.t-author span { font-size: 0.78rem; color: var(--text-muted); }
+
+/* Ubicación Grid */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    align-items: stretch;
+}
+
+.location-info-card {
+    background: var(--accent);
+    color: var(--white);
+    padding: 35px;
+    border-radius: 22px;
+}
+
+.location-info-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 24px; }
+.location-list { display: flex; flex-direction: column; gap: 20px; }
+.location-list li { display: flex; align-items: flex-start; gap: 14px; }
+.location-list i { font-size: 1.2rem; color: var(--primary); margin-top: 3px; }
+.location-list strong { display: block; font-size: 0.92rem; }
+.location-list p { font-size: 0.88rem; color: #94a3b8; margin: 0; }
+.location-list a { color: var(--white); text-decoration: underline; }
+
+.map-container {
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    min-height: 380px;
+}
+
+/* ==========================================================
+   FOOTER (CORRECCIÓN DE COLOR DEL LOGO "IC")
+   ========================================================== */
+.footer {
+    background-color: #070d1b;
+    color: var(--white);
+    padding-top: 60px;
+}
+
+/* CORRECCIÓN DE VISIBILIDAD DE "IC" EN EL FOOTER */
+.footer .logo-text {
+    color: #ffffff !important; /* Asegura contraste sobre fondo oscuro */
+}
+
+.footer-logo-wrapper {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 35px;
+    padding-bottom: 40px;
+}
+
+.footer-col p { color: #94a3b8; margin-top: 12px; font-size: 0.88rem; }
+.footer-col h4 { font-family: var(--font-heading); margin-bottom: 16px; font-size: 1rem; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #94a3b8; font-size: 0.88rem; }
+.footer-col ul li a:hover { color: var(--primary); }
+
+.footer-ig-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--insta-grad);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.footer-bottom {
+    background-color: #040812;
+    padding: 20px 0;
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+.text-white { color: var(--white) !important; }
+
+/* ==========================================================
+   ANIMACIONES Y EFECTOS
+   ========================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--whatsapp);
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    animation: pulseWhatsapp 2s infinite;
+}
+
+.whatsapp-float:hover { transform: scale(1.08); }
+
+@keyframes pulseWhatsapp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.float-animation {
+    animation: floatEffect 3.5s ease-in-out infinite;
+}
+
+@keyframes floatEffect {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes numberGlow {
+    from { opacity: 0.85; }
+    to { opacity: 1; text-shadow: 0 0 12px rgba(0, 137, 123, 0.5); }
+}
+
+/* ==========================================================
+   RESPONSIVE (MEDIA QUERIES)
+   ========================================================== */
+@media (max-width: 992px) {
+    .hero-content, .about-grid, .location-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-text { text-align: center; }
+    .hero-buttons { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--accent);
+        cursor: pointer;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 25px 0;
+        gap: 16px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .hero-text h1 { font-size: 2rem; }
+    .top-bar-content { flex-direction: column; text-align: center; }
+    .top-info span { display: block; margin-right: 0; margin-bottom: 4px; }
+}
+/* ==========================================================
+   SIN RECORTES DE IMÁGENES (100% VISIBLES EN TODO DISPOSITIVO)
+   ========================================================== */
+
+/* 1. Imagen Principal (Hero) */
+.hero-image-card {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain; /* ¡MUESTRA LA FOTO COMPLETA SIN RECORTAR! */
+    border-radius: 16px;
+}
+
+/* 2. Imagen Quem Somos (Sobre Nosotros) */
+.about-img-box {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background-color: var(--accent); /* Fondo elegante para rellenar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain; /* ¡SIN RECORTE EN NINGUNA PANTALLA! */
+}
+
+/* 3. Galería de Pacientes (Instagram) */
+.ig-card {
+    height: 260px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background-color: #0f172a; /* Fondo oscuro elegante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ig-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene la foto entera de Instagram */
+    transition: var(--transition);
+}
+
+/* Adaptación fluida para Celulares y Tablets */
+@media (max-width: 768px) {
+    .hero-img {
+        max-height: 320px;
+    }
+
+    .about-img {
+        max-height: 300px;
+    }
+
+    .ig-card {
+        height: 220px;
+    }
+}
